@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cctype>
 #include <string>
 #define endl '\n'
 using namespace std;
