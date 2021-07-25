@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <functional>
 #include <cctype>
 #include <string>
 #define endl '\n'
