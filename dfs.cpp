@@ -41,11 +41,11 @@ int main() {
 	int ans = dp(n);
 	vector <int> out;
 	while (n != 1) {
-		if (n > 2 && (nums[n / 2 - 1] > nums[n / 3 - 1]) && (nums[n - 1] == nums[n / 3 - 1] + 1) && (n % 3 == 0)) {
+		if (((nums[n/3-1] < nums[n/2-1])||(nums[n / 3 - 1] < nums[n-1])) && n%3 == 0 && nums[n/3-1] != -1) {
 			out.push_back(3);
 			n /= 3;
 		}
-		else if (n > 1 && (nums[n - 1] == nums[n / 2 - 1] + 1) && (n % 2 == 0)) {
+		else if ((nums[n / 2 - 1] < nums[n - 1])&&n%2==0 && nums[n/2-1] != -1) {
 			out.push_back(2);
 			n /= 2;
 		}
