@@ -10,21 +10,29 @@
 #define endl '\n'
 using namespace std;
 
-vector <vector <int>> g;
-vector <int> color_v;
-int n, m, ans = 0;
+vector <set <int>> g_set;
+vector <vector <int>> g_vector;
+vector <int> used_cycle;
+vector <int> used_component;
+int n, m;
+bool cycle;
+string s;
 
-void dfs(int i, int color) {
-	if (ans == -1)
+void dfs(int i, int k, int parent = -1) {
+	if (cycle || used_cycle[i] == 2 || used_component[i]) {
 		return;
-	color_v[i] = color;
-	for (int u : g[i]) {
-		if (!color_v[u])
-			dfs(u, 3 - color);
-		else {
-			ans = -1;
-		}
 	}
+	if (used_cycle[i] == 1) {
+		cycle = 1;
+		return;
+	}
+	used_cycle[i] = 1;
+	used_component[i] = k;
+	for (auto el: g_vector[i]) {
+		if (parent != el)
+			dfs(el, k, i);
+	}
+	used_cycle[i] = 2;
 }
 
 int main() {
@@ -34,22 +42,57 @@ int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 	cin >> n >> m;
-	g.resize(n, vector<int>());
-	color_v.resize(n);
+	g_set.resize(n, set <int>());
+	g_vector.resize(n, vector <int>());
+	used_cycle.resize(n);
+	used_component.resize(n);
+	cin >> s;
 	int a, b;
-	set <int> v;
 	for (int i = 0; i < m; ++i) {
 		cin >> a >> b;
-		g[a - 1].push_back(b);
-		g[b - 1].push_back(a);
+		if (a == b || s[a-1] == s[b-1] && s[a-1] == 'H') {
+   			cout << "NO";
+			return 0;
+		}
+		g_set[a - 1].insert(b - 1);
+		g_set[b - 1].insert(a - 1);
+
+		g_vector[a - 1].push_back(b - 1);
+		g_vector[b - 1].push_back(a - 1);
 	}
 
-	for (int i = 0; i < n; ++i) {
-		if (!color_v[i])
-			dfs(i, 1);
+	for (int i = 0; i < g_set.size(); ++i) {
+		if (s[i] == 'H' && g_set[i].size() != 1 || s[i] == 'C' && g_set[i].size() != 4) {
+			cout << "NO";
+			return 0;
+		}
+
 	}
-	
-	// Надо выводить только те экзамены, которые были введены 
+
+	int k = 0;
+	for (int i = 0; i < n; ++i) {
+		if (!used_component[i])
+			dfs(i, ++k);
+	}
+
+	if (!cycle) {
+		cout << "NO";
+	}
+	else {
+		cout << "YES";
+	}
+
+
+	// атомы - вершины
+	// связи - рёбра
+
+	// нету соединения H - H
+	// от C идёт 4 ребра
+	// от H идёт 1 ребро
+	// состоит из 1 компоненты
+	// не является циклом, является связаным
+
+
 
 	return 0;
 }
