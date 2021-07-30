@@ -1,4 +1,17 @@
 // MXCODE
+
+//
+//   ||\\	  //||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
+//   ||	\\	 //	||		CCC				OO		OO		DD     DD		EE
+//   ||	 \\	//	||		CC				OO		OO		DD	    DD		EE
+//   ||	  \☓/	||		CC				OO		OO		DD	    DD		EEEEEEEEEE
+//   ||	  /☓\	||		CC				OO		OO		DD	    DD		EE
+//   ||	 // \\	||		CC				OO		OO		DD	    DD		EE
+//   ||	//	 \\	||		CCC				OO		OO		DD	   DD		EE
+//   ||//	  \\||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
+//
+ 
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <vector>
@@ -15,7 +28,7 @@ int main() {
 #endif // !ONLINE_JUDGE
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-	
+
 
 	return 0;
 }
