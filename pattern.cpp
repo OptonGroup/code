@@ -10,7 +10,7 @@
 //   ||	//	 \\	||		CCC				OO		OO		DD	   DD		EE
 //   ||//	  \\||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
 //
- 
+
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
