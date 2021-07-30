@@ -1,4 +1,11 @@
 // MXCODE
+//
+// ||\\  //||    CCCCC   OOOO    DDDDD    EEEEEE
+// || \\// ||   CC      O    O   D    D   E
+// ||  XX  ||   C       O    O   D    D   EEEEEE
+// || //\\ ||   CC      O    O   D    D   E
+// ||//  \\||    CCCCC   OOOO    DDDDD    EEEEEE
+//
 
 //
 //   ||\\	  //||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
