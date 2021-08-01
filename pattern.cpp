@@ -11,8 +11,8 @@
 //   ||\\	  //||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
 //   ||	\\	 //	||		CCC				OO		OO		DD     DD		EE
 //   ||	 \\	//	||		CC				OO		OO		DD	    DD		EE
-//   ||	  \☓/	||		CC				OO		OO		DD	    DD		EEEEEEEEEE
-//   ||	  /☓\	||		CC				OO		OO		DD	    DD		EE
+//   ||	  \X/	||		CC				OO		OO		DD	    DD		EEEEEEEEEE
+//   ||	  /X\	||		CC				OO		OO		DD	    DD		EE
 //   ||	 // \\	||		CC				OO		OO		DD	    DD		EE
 //   ||	//	 \\	||		CCC				OO		OO		DD	   DD		EE
 //   ||//	  \\||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
