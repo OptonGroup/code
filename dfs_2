@@ -1,98 +1,74 @@
 // MXCODE
-#define _CRT_SECURE_NO_WARNINGS
+//
+// ||\\  //||    CCCCC   OOOO    DDDDD    EEEEEE
+// || \\// ||   CC      O    O   D    D   E
+// ||  XX  ||   C       O    O   D    D   EEEEEE
+// || //\\ ||   CC      O    O   D    D   E
+// ||//  \\||    CCCCC   OOOO    DDDDD    EEEEEE
+//
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <functional>
 #include <cctype>
 #include <string>
-#include <set>
 #define endl '\n'
 using namespace std;
 
-vector <set <int>> g_set;
-vector <vector <int>> g_vector;
-vector <int> used_cycle;
-vector <int> used_component;
-int n, m;
-bool cycle;
-string s;
+vector <vector <int>> g;
+vector <vector <int>> used;
+int n;
+int atary = 0;
+vector <vector <int>> moves = { {-1, 0}, {0, -1}, {0, 1}, {1, 0} };
 
-void dfs(int i, int k, int parent = -1) {
-	if (cycle || used_cycle[i] == 2 || used_component[i]) {
+void dfs(int i, int j, int cnt = 0) {
+	if (used[i][j] == 1)
 		return;
+	used[i][j] = 1;
+	for (auto move : moves) {
+		int i2 = i + move[0], j2 = move[1];
+		if (i2 >= 0 && i2 < n && j >= 0 && j < n) {
+			if (g[i2][j2] == 0) {
+				cnt++;
+			}
+		}
 	}
-	if (used_cycle[i] == 1) {
-		cycle = 1;
-		return;
+
+	for (auto move : moves) {
+		int i2 = i + move[0], j2 = move[1];
+		if (i2 >= 0 && i2 < n && j >= 0 && j < n) {
+			if (used[i2][j2] == 0)
+				dfs(i2, j2, cnt);
+		}
 	}
-	used_cycle[i] = 1;
-	used_component[i] = k;
-	for (auto el: g_vector[i]) {
-		if (parent != el)
-			dfs(el, k, i);
-	}
-	used_cycle[i] = 2;
+
 }
 
 int main() {
-#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
-#endif // !ONLINE_JUDGE
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-	cin >> n >> m;
-	g_set.resize(n, set <int>());
-	g_vector.resize(n, vector <int>());
-	used_cycle.resize(n);
-	used_component.resize(n);
-	cin >> s;
-	int a, b;
-	for (int i = 0; i < m; ++i) {
-		cin >> a >> b;
-		if (a == b || s[a-1] == s[b-1] && s[a-1] == 'H') {
-   			cout << "NO";
-			return 0;
-		}
-		g_set[a - 1].insert(b - 1);
-		g_set[b - 1].insert(a - 1);
-
-		g_vector[a - 1].push_back(b - 1);
-		g_vector[b - 1].push_back(a - 1);
-	}
-
-	for (int i = 0; i < g_set.size(); ++i) {
-		if (s[i] == 'H' && g_set[i].size() != 1 || s[i] == 'C' && g_set[i].size() != 4) {
-			cout << "NO";
-			return 0;
-		}
-
-	}
-
-	int k = 0;
+	cin >> n;
+	g.resize(n);
+	used.resize(n, vector<int>(n));
+	string s;
 	for (int i = 0; i < n; ++i) {
-		if (!used_component[i])
-			dfs(i, ++k);
+		cin >> s;
+		for (int j = 0; j < n; ++j) {
+			if (s[j] == '.')
+				g[i].push_back(0);
+			else if (s[j] == 'W') 
+				g[i].push_back(1);
+			else
+				g[i].push_back(2);
+		}
 	}
 
-	if (!cycle) {
-		cout << "NO";
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (g[i][j] == 2)
+				dfs(i, j);
+		}
 	}
-	else {
-		cout << "YES";
-	}
-
-
-	// атомы - вершины
-	// связи - рёбра
-
-	// нету соединения H - H
-	// от C идёт 4 ребра
-	// от H идёт 1 ребро
-	// состоит из 1 компоненты
-	// не является циклом, является связаным
-
-
 
 	return 0;
 }
