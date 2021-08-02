@@ -61,3 +61,49 @@ int main() {
 
 	return 0;
 }
+
+
+struct Event(){
+    int x, type_, index;
+    Event(){}
+    Event(int x, int type_, int index){
+        x(x) = x; type_(type) = type_; index(index) = index;
+    }
+    bool operator<(const Event, & b) const{
+        if (x != b.x)
+            return x < b.x;
+        if (type_ != b.type_)
+            return type_ < b.type_;
+        return index < b.index;
+    }
+}
+
+int n, m;
+cin >> n >> m;
+vector<Event> events;
+for (int i = 0; i < n; ++i){
+    int a, b;
+    cin >> a >> b;
+    if (a > b)
+        swap(a, b);
+    events.push_back(Event({a, 0, i}))
+    events.push_back(Event({b, 2, i}))
+}
+
+vector <int> ans(m,0);
+for(int i = 0; i < m; ++i){
+    cin >> a;
+    events.push_back(Event({a, 0, i}));
+}
+
+int cnt = 0;
+sort(events.begin(), events.end())
+for (auto & i: events){
+    if (i.type_ == 0){
+        cont++;   
+    }
+    else if (i.type_ == 1){
+        cont--;   
+    }
+    
+}
