@@ -7,17 +7,6 @@
 // ||//  \\||    CCCCC   OOOO    DDDDD    EEEEEE
 //
 
-//
-//   ||\\	  //||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
-//   ||	\\	 //	||		CCC				OO		OO		DD     DD		EE
-//   ||	 \\	//	||		CC				OO		OO		DD	    DD		EE
-//   ||	  \X/	||		CC				OO		OO		DD	    DD		EEEEEEEEEE
-//   ||	  /X\	||		CC				OO		OO		DD	    DD		EE
-//   ||	 // \\	||		CC				OO		OO		DD	    DD		EE
-//   ||	//	 \\	||		CCC				OO		OO		DD	   DD		EE
-//   ||//	  \\||		 CCCCCCCCC		 OOOOOOOO		DDDDDDDD		EEEEEEEEEE
-//
-
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
@@ -26,6 +15,7 @@
 #include <functional>
 #include <cctype>
 #include <string>
+#include <iomanip>
 #define endl '\n'
 using namespace std;
 
