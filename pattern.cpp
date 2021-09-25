@@ -15,7 +15,7 @@
 #include <functional>
 #include <cctype>
 #include <string>
-#include <iomanip>
+#include <iomanip>  // fixed << setprecision(n)
 #define endl '\n'
 using namespace std;
 
