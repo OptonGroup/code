@@ -99,6 +99,19 @@ int main() {
 #endif // !ONLINE_JUDGE
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
+	min_queue q;
+	int n, k;
+	cin >> n >> k;
+	for (int i = 0; i < k; ++i) {
+		int m;
+		cin >> m;
+		q.push(m);
+	}
 
+	for (int i = k; i < n; ++i) {
+		cout << q.min_val() << endl;
+		q.pop();
+	}
+	cout << q.min_val() << endl;
 	return 0;
 }
