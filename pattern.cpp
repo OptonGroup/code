@@ -9,14 +9,16 @@
 
 
 #define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 #include <functional>
+#include <algorithm>
+#include <iostream>
+#include <iomanip>  // fixed << setprecision(n)
+#include <vector>
 #include <cctype>
 #include <string>
-#include <iomanip>  // fixed << setprecision(n)
 #define endl '\n'
+typedef long long ll;
 using namespace std;
 
 int main() {
@@ -26,6 +28,6 @@ int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 
-
+	cerr << "Time: " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
 	return 0;
 }
