@@ -1,0 +1,63 @@
+// @active_botane every day
+#include <bits/stdc++.h>
+#define endl '\n'
+#define all(x) x.begin(), x.end()
+typedef long long ll;
+using namespace std;
+
+void solve(){
+	ll n, m;
+	cin >> n >> m;
+	if (n == 1){
+		cout << 0 << endl;
+		return;
+	}
+
+	vector <ll> d(3);
+	d[1] = m;
+	d[2] = 0;
+
+	ll cnt = 0;
+
+	vector <ll> v(n+1);
+
+	for (int i = 2; i <= n; ++i){
+		bool x = false;
+		for (ll j = 2; j * j <= i; ++j){
+			if (i%j==0 && j*j != i){
+				v[i] += v[j] + v[i/j];
+				x = true;
+			}else if (i%j==0){
+				v[i] = v[j];
+				x = true;
+			}
+		}
+		if (!x){
+			v[i] = m/i;
+		}
+
+		d[2] = (d[1]*(m-v[i])%998244353) + (d[2]*m%998244353);
+		d[2] %= 998244353;
+		d[1] += (d[1]*(v[i])%998244353);
+		d[1] %= 998244353;
+		cnt += (d[2]%998244353);
+		cnt %= 998244353;
+	}
+	cout << cnt << endl;
+}
+
+int main() {
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
+#endif // !ONLINE_JUDGE
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	
+	ll t;
+	t = 1;
+	while(t--){
+		solve();
+	}
+
+	cerr << "Time: " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
+	return 0;
+}
