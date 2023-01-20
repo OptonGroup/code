@@ -7,6 +7,10 @@
 #include <cctype>
 #include <string>
 #include <iomanip>
+#include <map>
+#include <set>
+#include <queue>
+#include <cmath>
 #define endl '\n'
 #define all(x) x.begin(), x.end()
 typedef long long ll;
