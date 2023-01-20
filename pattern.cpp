@@ -1,14 +1,9 @@
-// MXCODE
-//
-// ||\\  //||    CCCCC   OOOO    DDDDD    EEEEEE
-// || \\// ||   CC      O    O   D    D   E
-// ||  XX  ||   C       O    O   D    D   EEEEEE
-// || //\\ ||   CC      O    O   D    D   E
-// ||//  \\||    CCCCC   OOOO    DDDDD    EEEEEE
-//
+// Botat' every day
 #include <bits/stdc++.h>
-#define endl '\n'                                       
+#define endl '\n'    
+#define all(x) x.begin(), x.end()                                   
 typedef long long ll;
+typedef long double ld;
 using namespace std;
 
 int main() {
