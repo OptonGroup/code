@@ -10,6 +10,7 @@
 #define endl '\n'
 #define all(x) x.begin(), x.end()
 typedef long long ll;
+typedef long double ld;
 using namespace std;
 
 int main() {
