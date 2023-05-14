@@ -104,11 +104,11 @@ int main() {
     ll cnt = 0;
     for (int j = 0 ; j < a; ++j) {
       cin >> name;
-      crafts[to_craft].push_back(name);
+      crafts[to_craft].push_back(name); // change
     }
   }
   ll ans = 0;
-  for (auto& el : toget) {
+  for (auto& el : toget) {      // change
     ll g_price = get_price(el);
     if (g_price == 0){
         cout << -1;
