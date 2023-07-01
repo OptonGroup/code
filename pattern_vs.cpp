@@ -1,4 +1,11 @@
 // @active_botane every day
+
+// Мальчик-айтишник, 300k в секунду
+// Постоянно кодит, молодой Дуров
+// Я уже устала о тебе думать
+// Как же я хочу быть твоей клавиатурой
+// Как же я хочу быть твоей
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <vector>
@@ -13,6 +20,7 @@
 #include <cmath>
 #define endl '\n'
 #define all(x) x.begin(), x.end()
+#define print(x) for (auto u: x) cout << u << " ";
 typedef long long ll;
 typedef long double ld;
 using namespace std;
