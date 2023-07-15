@@ -7,9 +7,10 @@
 // Как же я хочу быть твоей
 
 #include <bits/stdc++.h>
-#define endl '\n'    
-#define all(x) x.begin(), x.end() 
+#define endl "\n"
+#define all(x) x.begin(), x.end()
 #define print(x) for (auto u: x) cout << u << " ";
+#define getv(v) for (int i = 0; i < v.size(); i++) cin >> v[i];
 typedef long long ll;
 typedef long double ld;
 using namespace std;
